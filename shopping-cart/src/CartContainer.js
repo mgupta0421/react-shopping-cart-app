@@ -1,9 +1,10 @@
 import React from "react";
 import { useGlobalContext } from "./context";
 import CartItem from "./CartItem";
+import reducer from "./reducer";
 
 const CartContainer = () => {
-    const {cart} = useGlobalContext();
+    const { cart, amount,} = useGlobalContext();
     if(cart.length === 0){
         return (
             <header>
@@ -23,8 +24,8 @@ const CartContainer = () => {
                 </div>
                 <footer>
                     <hr/>
-                    <div className="cart-totol">
-                        <h4>Total <span>0.00</span></h4>
+                    <div className="cart-total">
+                        <h4>Total <span>{amount}</span></h4>
                     </div>
                     <button className="btn clear-btn" onClick={() => console.log('clear cart')}>Clear Cart
                     </button>
